@@ -1,25 +1,78 @@
 @charset "UTF-8";
 
+
+/*
+    PALETA DE CORES
+    #83E1AD
+    #3DDB84   -> BASE da paleta
+    #2FA866
+    #1A5C37
+    #355C47
+*/
+
+@font-face {
+    font-family: 'Android_font';
+    src: url(pacote-projeto-d010/fontes/idroid.otf) format('opentype');
+}
+
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap'); /*nao ta funcionando, mas vou deixar aqui */
+
+:root{
+    --cor01: #97e1b7;
+    --cor02: #56df94;
+    --cor03: #2FA866;
+    --cor04: #1A5C37;
+    --cor05: #355C47;
+
+    /* fontes */
+    --fonte_padrao: Arial, Helvetica, sans-serif;
+    --fonte_titulo_principal: 'Bebas Neue', sans-serif;
+    --fonte_android: 'Android_font', Arial, Helvetica, sans-serif;
+}
+
+*{
+    margin: 0px;
+}
+
 header{
     color:white;               /*isso nao fez a cor dos links do nav ficar branco nao sei pq,tive que fazer isso no seletor de nav*/
-    background-color: #00761f;
-    background-image: linear-gradient(rgb(60, 173, 60), rgb(2, 91, 2));
-    padding: 0px 0px 5px 0px;          /* 1º é em cima*/  
+   
+    background-image: linear-gradient(var(--cor02), var(--cor04));
+    padding: 20px 20px 5px 20px;          /* 1º é em cima*/  
+    box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.341);
 }
+
 
 main{
     background-color: white;
-    width: 58em;
-    margin: auto;        /*pra centralizar a caixa da main na pagina*/
+    min-width: 320px;   /*na menor largura do navegador, fica com 542.40px, ai coloquei esse valor ai pra adaptar, pouco menos pra ficar melhor*/
+    max-width: 58em;   /*isso é a largura original que coloquei, agora, limita isso como máxima*/
+    margin: auto;       /*pra centralizar a caixa da main na pagina*/
     text-align: justify;
     text-indent: 20px;
     padding: 10px;
     border-radius: 0px 0px 15px 15px;
-    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.29);
+    box-shadow: 0px 0px 9px 4px rgba(0, 0, 0, 0.29); 
+}
+
+main strong{
+    color: var(--cor05);
+}
+
+article{
+    padding: 10px;
+}
+
+article > p{
+    margin-top: 15px;
+    margin-bottom: 15px;
+    line-height: 1.5em;
+
 }
 
 footer{
-    background-color:rgb(2, 91, 2) ;
+    background-color:var(--cor04) ;
     color: white;
     text-align: center;
     padding: 2px;
@@ -31,17 +84,23 @@ footer > p{
 }
 
 body{
-    background-color: #6DFF93;
-    font-family: Arial, Helvetica, sans-serif;
+    background-color: var(--cor02);
+    font-family: var(--fonte_padrao);
 }
 
 #principal{
     text-align: center;
+    font-size: 2.2em;
+    font-family: var(--fonte_titulo_principal);
+    text-shadow: 3px 3px 2px rgba(0, 0, 0, 0.282);
 }
 
 #frase_cabecalho{
     text-align: center;
+    font-size: 1.2em;
+    padding: 15px 0px;
 }
+
 
 nav > a{
     text-decoration: none;
@@ -55,64 +114,103 @@ nav > a{
 
 nav > a:hover{
     text-decoration: underline;
-    background-color: rgb(53, 176, 53);      /*muda a cor depois*/
+    background-color: var(--cor01);      /*muda a cor depois*/
+    color:var(--cor03);
+    font-weight: bold;
+    transition-duration: 0.25s;
 }
 
 h2{
     font-family: 'Android_font', Arial, Helvetica, sans-serif;
-    color: #025b1a;
+    color: var(--cor04);
+    margin: 15px 0px 15px 0px;
 }
 
 h3{
-   background-image: linear-gradient(to right, rgb(167, 246, 167), rgb(255, 255, 255));
+   background-image: linear-gradient(to right, rgb(167, 246, 167), transparent); /*esse transparnt vi na aula, mas o braco tava servindo*/
    padding: 2px; 
-   font-family: 'Android_font', Arial, Helvetica, sans-serif;
-   color: #025b1a;
+   font-family: var(--fonte_android);
+   color: var(--cor04);
+   margin: 10px 0px 10px 0px;
 }
 
 img{
     display: block;          /*chatgpt que indicou fazer isso, deu certo, só o "margin auto" sozinho nao centralizou as imagens*/
     margin:auto;
+    width: 100%;
 }
 
-iframe {
-    display: block;
-    margin: auto;
-    background-color: green;
-    padding: 20px;
+#bugdroid-pequena{
+    max-width: 350px;
 }
+
+/*
+div.div_video{
+    background-color: var(--cor04);
+    margin:0px -60px 20px -20px;
+    padding: 20px;
+    /*padding-bottom: 50%;*/
+ /*   position: relative;
+}
+*/
+
+/*div.div_video > iframe{
+
+    position: absolute;     
+    top: 5%;
+    left: 5%;
+    width: 90%;
+    height: 90%;
+}*/
+
+iframe{               /*desisti de tentar colar o video nas bordas laterais da main*/
+    display: block;
+    width: 100%;
+}
+
 
 h4{
-    background-color: green;
+    background-color: var(--cor03);
     padding: 8px;
     color: white;
     border-radius: 8px 8px 0px 0px;       /*isso porque o bloco h4 sobrepoe a div, entao a borda que coloquei na div nao aparece no vertices de cima*/
 }
 
-div{
-    background-color: #9cfbb6;
-    width: 850px;
-    height: 450px;
+div{                                  /* ta perdendo a borda arredondada no vertices de baixo qnd diminui a tela... n sei pq*/
+    background-color: var(--cor01);
+    min-width: 300px;             
+    max-width: 850px;
+    min-height: 450px;
     margin: auto;
+    margin-top: 15px;
+    margin-bottom: 15px;
     border-radius: 8px;            
 }
 
 div > p{
-    background-color: #9cfbb6;
+    background-color: var(--cor01);
     color: black;
     padding: 8px;
-    text-indent: 20px;         /*vi chatgpt, isso eh pra dar espaço no começo do pagrafo */
+    text-indent: 30px;         /*vi chatgpt, isso eh pra dar espaço no começo do pagrafo */
 } 
 
+
+div > ul{
+    columns: 2;
+    column-gap: 145px; /*chatgtp passou esse comando, ajustei esse tamanho do devTOLLS*/
+    margin-top: 30px; 
+    margin-bottom: 30px;
+}
+
 .links_main{
-    background-color: rgba(31, 156, 31, 0.2);
-    color: rgb(1, 58, 1);
+    background-color: rgba(31, 156, 31, 0.2);  /*nao coloquei cores da paleta aqui pra nao ter que mexer de novo na transparencia*/
+    color: var(--cor04);
     font-weight: bold;
     text-decoration: none;
 }
 
 #link_da_div{
-    color: rgb(1, 58, 1);
+    color: var(--cor04);
     font-weight: bold;
     text-decoration: none;
 }
@@ -120,7 +218,9 @@ div > p{
 .links_footer{
     font-weight: bold;
     color: white;
+    text-decoration: none;
 }
+
 
 .links_main:hover{
     text-decoration: underline;
@@ -134,13 +234,13 @@ div > p{
     text-decoration: underline;
 }
 
-.listas{
+ul{                           /*aqui era classe no meu site,  resolvi tirar e deixar o seletor ul (so tem uma lista agr, e so vai ser essa lista)*/
     display: inline-block;
     margin-right: 150px;
     list-style-type: none;   /*para remover os marcadores convencionais das listas (chatgpt)*/
 }
 
-.listas li::before{
+ul li::before{
     content: "✔️";
     margin-right: 5px;
 }
@@ -181,3 +281,9 @@ Coisas que nao consegui:
 .O professor a lista que ta dentro daquela div como uma lista só ! eu fiz como duas pela disposição do elemento na tela, nao consegui fazer ficar do jeito desejado so com uma lista
 .Algumas palavras que estavam mais destacadas no corpo da pagina eu usei por exemplo "font-wheith: bold", mas eh mais facile pode tbm envelopar com a tag strong
 */ 
+
+
+/*RESPONSIVIDADE DO VIDEO
+Do jeito que o professor ensinou ficou muito zuado meu video, nada responsivo.
+Usei algo que pensei: coloquei iframe pra ser tratado como box level, largura de 100% e ficou responsivo assim(só nao ficou encostando nos limites laterais do site)
+*/
