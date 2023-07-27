@@ -1,0 +1,183 @@
+@charset "UTF-8";
+
+header{
+    color:white;               /*isso nao fez a cor dos links do nav ficar branco nao sei pq,tive que fazer isso no seletor de nav*/
+    background-color: #00761f;
+    background-image: linear-gradient(rgb(60, 173, 60), rgb(2, 91, 2));
+    padding: 0px 0px 5px 0px;          /* 1º é em cima*/  
+}
+
+main{
+    background-color: white;
+    width: 58em;
+    margin: auto;        /*pra centralizar a caixa da main na pagina*/
+    text-align: justify;
+    text-indent: 20px;
+    padding: 10px;
+    border-radius: 0px 0px 15px 15px;
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.29);
+}
+
+footer{
+    background-color:rgb(2, 91, 2) ;
+    color: white;
+    text-align: center;
+    padding: 2px;
+    margin-top: 20px;
+}
+
+footer > p{
+    margin: 0px;        /*so pra corrigir o erro de quando coloco padding no footer, pq pega padding do footer + margem de 16 do paragrgafo*/
+}
+
+body{
+    background-color: #6DFF93;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#principal{
+    text-align: center;
+}
+
+#frase_cabecalho{
+    text-align: center;
+}
+
+nav > a{
+    text-decoration: none;
+    color:white;
+    margin-right: 12px;             /*tentei colocar com borda isso e nao deu, nao funcionava*/
+    margin-left: 2px;
+    margin-bottom: 2px;
+    padding: 6px;
+    border-radius: 5px;
+}
+
+nav > a:hover{
+    text-decoration: underline;
+    background-color: rgb(53, 176, 53);      /*muda a cor depois*/
+}
+
+h2{
+    font-family: 'Android_font', Arial, Helvetica, sans-serif;
+    color: #025b1a;
+}
+
+h3{
+   background-image: linear-gradient(to right, rgb(167, 246, 167), rgb(255, 255, 255));
+   padding: 2px; 
+   font-family: 'Android_font', Arial, Helvetica, sans-serif;
+   color: #025b1a;
+}
+
+img{
+    display: block;          /*chatgpt que indicou fazer isso, deu certo, só o "margin auto" sozinho nao centralizou as imagens*/
+    margin:auto;
+}
+
+iframe {
+    display: block;
+    margin: auto;
+    background-color: green;
+    padding: 20px;
+}
+
+h4{
+    background-color: green;
+    padding: 8px;
+    color: white;
+    border-radius: 8px 8px 0px 0px;       /*isso porque o bloco h4 sobrepoe a div, entao a borda que coloquei na div nao aparece no vertices de cima*/
+}
+
+div{
+    background-color: #9cfbb6;
+    width: 850px;
+    height: 450px;
+    margin: auto;
+    border-radius: 8px;            
+}
+
+div > p{
+    background-color: #9cfbb6;
+    color: black;
+    padding: 8px;
+    text-indent: 20px;         /*vi chatgpt, isso eh pra dar espaço no começo do pagrafo */
+} 
+
+.links_main{
+    background-color: rgba(31, 156, 31, 0.2);
+    color: rgb(1, 58, 1);
+    font-weight: bold;
+    text-decoration: none;
+}
+
+#link_da_div{
+    color: rgb(1, 58, 1);
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.links_footer{
+    font-weight: bold;
+    color: white;
+}
+
+.links_main:hover{
+    text-decoration: underline;
+}
+
+#link_da_div:hover{
+    text-decoration: underline;
+}
+
+.links_footer:hover{
+    text-decoration: underline;
+}
+
+.listas{
+    display: inline-block;
+    margin-right: 150px;
+    list-style-type: none;   /*para remover os marcadores convencionais das listas (chatgpt)*/
+}
+
+.listas li::before{
+    content: "✔️";
+    margin-right: 5px;
+}
+/*
+Acabamentos pra fazer depois:
+
+.Pegar paleta de cores e colocar as cores mais aprecidas com as do site
+.Colocar Fontes certas
+.Colocar os links 
+
+
+
+Coisas que nao consegui:
+
+.Ajustar o cabecalho na pra ocupar um retangulo na tela toda na parte de cima(engraçado que a caixa da main so com padding ja colou na caixa de cima(header) do jeito que eu queria)
+.sombra na parte esquerda da caixa main
+.Ajustar a caixa do video colada nos limites laterais da caixa main(talvez se eu nao centraliza, e ir aumentando a largura ate bater no limite da diretia, funcione) -> FUNCIONOU, CONSEGUI AJUSTAR COM MARGIN-LEFT -10px  e WIDTH : 908px, mas acho que nao eh  o melhor jeito
+*/
+
+/*  O QUE FALTOU IMPLEMENTAR ?
+
+-Paleta de cores
+.COLAR A CAIXA DO HEADER E DO VIDEO NOS LIMITE DA PAGINA E DA CAIXA DA MAIN, RESPECTIVAMENTE. COLAR A CAIXA DO FOOTER NOS LIMITES DA TELA TAMBEM
+.Responsividade(minha ideia pra tentar isso era fazer igual o exercicio 11 com a imagem "T")
+*/
+
+
+/*Aprendizados/coisas importantes que percebeu
+
+.id pra varios elementos funciona, mas ta errado ! Se vai colocar um identificador pra mais de um h1 por exemplo, use class! id é pra apenas um elemento
+*/
+
+
+/*FEEDBACK COMPARANDO O QUE FIZ COM O QUE O PROFESSOR FALOU NAS AULAS DO PASSO A PASSO DESSE SITE
+
+.Faltou, antes de começar a fazer o site: Fazer o layout(mas nesse caso isso ja tava pronto, mas nos proximos que nao estiver, fazemos); Paleta de cores(no adobe color faz facil); Selecionar as fontes que usará;
+.O prof usou o titulo principal da main e titulo do cabeçalho ambos como h1 ...  
+.O professor a lista que ta dentro daquela div como uma lista só ! eu fiz como duas pela disposição do elemento na tela, nao consegui fazer ficar do jeito desejado so com uma lista
+.Algumas palavras que estavam mais destacadas no corpo da pagina eu usei por exemplo "font-wheith: bold", mas eh mais facile pode tbm envelopar com a tag strong
+*/ 
